@@ -13,7 +13,7 @@ library(flexdashboard)
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Amount of substantive restrictions by state
 
 ```{r}
 library(ggplot2)
@@ -24,18 +24,21 @@ conservation <- readRDS("states_es_laws.rds", refhook = NULL)
 state_data <- left_join(conservation, states, by = c("state" = "state_name")) 
 
 state_data %>%
-  ggplot(aes(long, lat, group = group, fill = habitat_mod_take)) +
-  geom_polygon(color = NA) +
+  ggplot(aes(long, lat, group = group, fill = substantive_restrictions)) +
+   geom_polygon(color = "#ffffff", size = .15) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  labs(fill = "rank")
+  
+  labs(fill = "Substantive Restrictions")
 ```
 
-Column {data-width=350}
+Column {data-width=350}  {data-height=700}
 -----------------------------------------------------------------------
 
 ### Chart B
 
 ```{r}
+ggplot(data = conservation, aes(x = conserv_programs, y = code)) +
+  geom_point()
 
 ```
 
