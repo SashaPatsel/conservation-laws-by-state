@@ -8,18 +8,33 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(ggplot2)
+library(tidyverse)
+library(urbnmapr)
+
+conservation <- readRDS("states_es_laws.rds", refhook = NULL)
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Amount of substantive restrictions by state
+```{r fig.height = 8, fig.width = 5}
+#qplot(code, data = conservation, facets = .~conserv_programs)
+ggplot(data = conservation, aes(x = conserv_programs, y = code)) + 
+  geom_point()
 
-```{r}
-library(ggplot2)
-library(tidyverse)
-library(urbnmapr)
-conservation <- readRDS("states_es_laws.rds", refhook = NULL)
+```
+
+
+
+Column {data-width=350}  {data-height=700}
+-----------------------------------------------------------------------
+
+### Chart B
+```{r fig.height = 7, fig.width = 10}
+
+
 
 state_data <- left_join(conservation, states, by = c("state" = "state_name")) 
 
@@ -31,17 +46,6 @@ state_data %>%
   labs(fill = "Substantive Restrictions")
 ```
 
-Column {data-width=350}  {data-height=700}
------------------------------------------------------------------------
-
-### Chart B
-
-```{r fig.height = 10, fig.width = 5}
-#qplot(code, data = conservation, facets = .~conserv_programs)
-ggplot(data = conservation, aes(x = conserv_programs, y = code)) + 
-  geom_point()
-
-```
 
 ### Chart C
 
