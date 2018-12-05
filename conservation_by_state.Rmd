@@ -24,7 +24,7 @@ conservation <- readRDS("states_es_laws.rds", refhook = NULL)
 state_data <- left_join(conservation, states, by = c("state" = "state_name")) 
 
 state_data %>%
-  ggplot(aes(long, lat, group = group, fill = substantive_restrictions)) +
+  ggplot(aes(long, lat, group = group, fill = substantive_restrictions, color=code)) +
    geom_polygon(color = "#ffffff", size = .15) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
   
@@ -37,8 +37,8 @@ Column {data-width=350}  {data-height=700}
 ### Chart B
 
 ```{r}
-ggplot(data = conservation, aes(x = conserv_programs, y = code)) +
-  geom_point()
+ggplot(data = conservation, aes(x = conserv_programs, y = code, color=code)) +
+  geom_col()
 
 ```
 
