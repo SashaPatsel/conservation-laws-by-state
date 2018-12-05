@@ -25,9 +25,9 @@ state_data <- left_join(conservation, states, by = c("state" = "state_name"))
 
 state_data %>%
   ggplot(aes(long, lat, group = group, fill = substantive_restrictions, color=code)) +
+  coord_fixed(ratio = q) +
    geom_polygon(color = "#ffffff", size = .15) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  
   labs(fill = "Substantive Restrictions")
 ```
 
@@ -36,9 +36,10 @@ Column {data-width=350}  {data-height=700}
 
 ### Chart B
 
-```{r}
-ggplot(data = conservation, aes(x = conserv_programs, y = code, color=code)) +
-  geom_col()
+```{r fig.height = 10, fig.width = 5}
+#qplot(code, data = conservation, facets = .~conserv_programs)
+ggplot(data = conservation, aes(x = conserv_programs, y = code)) + 
+  geom_point()
 
 ```
 
