@@ -19,6 +19,10 @@ Column {data-width=650}
 library(ggplot2)
 library(tidyverse)
 library(urbnmapr)
+conservation <- readRDS("states_es_laws.rds", refhook = NULL)
+
+state_data <- left_join(conservation, states, by = c("state" = "state_name")) 
+
 
 ```
 
