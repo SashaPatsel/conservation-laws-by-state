@@ -21,11 +21,6 @@ Column {data-width=650}
 
 ### State Total Scores and Ranks
 
-On the chart below, we see how each state ranks in their conservation efforts. 
-
-Each state is represented alone on the Y axis. Each state's respective distance from that axis represents their `total conservation score`.
-
-Unsurprisingly, states' total score is closely linked with their overall rank (represented in varying shades of blue). The darker the shade of blue, the better that state ranks amongst its peers. 
 
 ```{r fig.height = 6, fig.width = 6}
 #qplot(code, data = conservation, facets = .~conserv_programs)
