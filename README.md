@@ -16,7 +16,6 @@ This app was my first built in R.
 
 R is a statistical programming language used by many science because of its vectorized operations. Though R is certainly not the only programming language that handles large data sets, it does so more effectively than most when it comes to statistical analyses.
 
-
 ### Prerequisites
 
 * [R](https://www.r-project.org/about.html)
