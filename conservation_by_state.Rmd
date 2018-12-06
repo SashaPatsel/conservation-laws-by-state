@@ -12,6 +12,7 @@ library(ggplot2)
 library(tidyverse)
 library(urbnmapr)
 
+
 conservation <- readRDS("states_es_laws.rds", refhook = NULL)
 ```
 
@@ -19,10 +20,10 @@ Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Amount of substantive restrictions by state
-```{r fig.height = 8, fig.width = 5}
+```{r fig.height = 6, fig.width = 6}
 #qplot(code, data = conservation, facets = .~conserv_programs)
-ggplot(data = conservation, aes(x = conserv_programs, y = code)) + 
-  geom_point()
+ggplot(data = conservation, aes(x = total, y = code, color= rank)) + 
+  geom_count()
 
 ```
 
@@ -50,6 +51,9 @@ state_data %>%
 ### Chart C
 
 ```{r}
+
+ggplot(data = conservation, aes(x = animal_commerce_restrictions, y = plant_commerce_restrictions, color= code)) + 
+  geom_point()
 
 ```
 

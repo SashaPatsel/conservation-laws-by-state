@@ -1,0 +1,46 @@
+<pre><code class="r setup, include=FALSE">library(flexdashboard)
+library(ggplot2)
+library(tidyverse)
+library(urbnmapr)
+library(markdown)
+
+markdownToHTML(&#39;conservation_by_state.Rmd&#39;, &#39;index.html&#39;, options=&#39;fragment_only&#39;)
+
+conservation &lt;- readRDS(&quot;states_es_laws.rds&quot;, refhook = NULL)
+</code></pre>
+
+<h2>Column {data-width=650}</h2>
+
+<h3>Amount of substantive restrictions by state</h3>
+
+<pre><code class="r fig.height = 8, fig.width = 5">#qplot(code, data = conservation, facets = .~conserv_programs)
+ggplot(data = conservation, aes(x = conserv_programs, y = rank, color= code)) + 
+  geom_point()
+
+</code></pre>
+
+<h2>Column {data-width=350}  {data-height=700}</h2>
+
+<h3>Chart B</h3>
+
+<pre><code class="r fig.height = 7, fig.width = 10">
+
+
+state_data &lt;- left_join(conservation, states, by = c(&quot;state&quot; = &quot;state_name&quot;)) 
+
+state_data %&gt;%
+  ggplot(aes(long, lat, group = group, fill = substantive_restrictions, color=code)) +
+  coord_fixed(ratio = q) +
+   geom_polygon(color = &quot;#ffffff&quot;, size = .15) +
+  coord_map(projection = &quot;albers&quot;, lat0 = 39, lat1 = 45) +
+  labs(fill = &quot;Substantive Restrictions&quot;)
+</code></pre>
+
+<h3>Chart C</h3>
+
+<pre><code class="r">
+ggplot(data = conservation, aes(x = animal_commerce_restrictions, y = plant_commerce_restrictions, color= code)) + 
+  geom_point()
+
+</code></pre>
+
