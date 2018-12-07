@@ -6,15 +6,9 @@ This application gives a brief overview of conservation efforts in every state i
 
 It contains two visualizations of states' conservation efforts.
 
-In the first, we see a clear depiction of states stack up against one another in terms of conservation.
+In figure A, we see a clear depiction of how states stack up against one another in terms of conservation. States found on the right side of the chart, or who are represented by a darker shade of blue, rank more strongly. The opposite is true for the left-most and lighter blue states.
 
-In the second chart, we see a map which demonstrated in color which states have the most substantive restrictions for conservation. 
-
-## About
-
-This app was my first built in R. 
-
-R is a statistical programming language used by many science because of its vectorized operations. Though R is certainly not the only programming language that handles large data sets, it does so more effectively than most when it comes to statistical analyses.
+In figure B, we see a map demonstrating in color which states have the most substantive restrictions for conservation. In this case, states highlighted in a lighter shade of blue have more substantive restrictions.
 
 ### Prerequisites
 

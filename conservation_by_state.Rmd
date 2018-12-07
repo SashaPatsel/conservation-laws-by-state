@@ -19,7 +19,7 @@ conservation <- readRDS("states_es_laws.rds", refhook = NULL)
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### State Total Scores and Ranks
+### Figure A - State Total Scores and Ranks
 
 
 ```{r fig.height = 6, fig.width = 6}
@@ -34,7 +34,7 @@ ggplot(data = conservation, aes(x = total, y = code, color= rank)) +
 Column {data-width=350}  {data-height=700}
 -----------------------------------------------------------------------
 
-### Substantive Restrictions by State
+### Figure B - Substantive Restrictions by State
 ```{r fig.height = 7, fig.width = 10}
 
 
