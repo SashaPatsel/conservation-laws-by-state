@@ -1,7 +1,6 @@
 # [Conservation Laws By State](https://sashapatsel.github.io/state-endangered-species/) 
 
 <img src ="demo.png">
-
 This application gives a brief overview of conservation efforts in every state in the U.S.
 
 It contains two visualizations of states' conservation efforts.
