@@ -46,7 +46,8 @@ state_data %>%
   coord_fixed(ratio = q) +
    geom_polygon(color = "#ffffff", size = .15) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  labs(fill = "Substantive Restrictions")
+  labs(fill = "Substantive Restrictions") 
+ 
 ```
 
 
